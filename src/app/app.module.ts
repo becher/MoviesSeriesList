@@ -9,12 +9,15 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatInputModule} from "@angular/material/input";
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { LoaderInterceptor } from './interceptor/loader-interceptor.interceptor';
+import { SpinnerComponent } from './components/spinner/spinner.component';
  
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,   
+    HeaderComponent,
+    SpinnerComponent,   
   ],
   imports: [
     HttpClientModule,
@@ -27,7 +30,11 @@ import { HttpClientModule } from '@angular/common/http';
     MatSidenavModule,
     MatInputModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
