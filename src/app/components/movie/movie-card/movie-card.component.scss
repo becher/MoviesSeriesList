@@ -1,17 +1,15 @@
-$color_1: #fff;
-$color_2: white;
-$color_3: #dc4666;
-$background-color_1: #3e3838;
-$background-color_2: rgba(255, 255, 255, 0.431372549);
-
+$color_white: #fff;
+$color_pink: #dc4666;
+$background-black: #3e3838;
+ 
 mat-paginator {
 	background: #212121;
-	color: $color_1;
+	color: $color_white;
 }
 .content {
 	padding: 16px;
 	mat-card {
-		background-color: $background-color_1;
+		background-color: $background-black;
 		// height: 487px;
 		img {
 			width: 100%;
@@ -23,7 +21,7 @@ mat-paginator {
 			  }
 		}
 		mat-card-title.mat-mdc-card-title {
-			color: $color_2;
+			color: $color_white;
 			font-size: 16px;
 		}
 		.mat-mdc-card-header {
@@ -38,7 +36,7 @@ mat-paginator {
 			position: absolute;
 			top: 90px;
 			right: 8px;
-			color: $color_1;
+			color: $color_white;
 			font-size: 16px;
 			font-weight: 400;
 		}
@@ -57,31 +55,16 @@ mat-paginator {
 				top: 2px;
 			}
 			.material-icons {
-				color: $color_3;
+				color: $color_pink;
 			}
 			span {
-				color: $color_1;
+				color: $color_white;
 				font-size: 16px;
 				font-weight: 400;
 			}
 		}
 	}
-	
-	&__search-bar {
-		padding: 0 0 15px;
-
-		.search {
-			padding: 0.5rem 1rem;
-			width: 42%;
-			outline: none;
-		}
-	}
+ 
 }
 
-button.mdc-button.mdc-button--raised.mat-mdc-raised-button.mat-unthemed.mat-mdc-button-base {
-	position: absolute;
-	width: 100%;
-	bottom: 0;
-	background-color: $background-color_2 !important;
-	height: 48px;
-}
+ 

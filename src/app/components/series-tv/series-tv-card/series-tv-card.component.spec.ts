@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SeriesTvCardComponent } from './series-tv-card.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('SeriesTvCardComponent', () => {
   let component: SeriesTvCardComponent;
@@ -8,7 +9,8 @@ describe('SeriesTvCardComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SeriesTvCardComponent]
+      declarations: [SeriesTvCardComponent],
+      imports:[HttpClientTestingModule]
     });
     fixture = TestBed.createComponent(SeriesTvCardComponent);
     component = fixture.componentInstance;

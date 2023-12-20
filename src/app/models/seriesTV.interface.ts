@@ -1,16 +1,14 @@
-export interface Movie {
+export interface SeriesTv {
   id: number;
-  genre_ids: Array<any>;
+  genres: Array<any>;
   backdrop_path: string;
   original_language: string;
-  original_title: string;
+  name: string;
+  original_name: string;
+  first_air_date: string;
   overview: string;
   popularity: number;
   poster_path: string;
-  release_date: string;
-  runtime: number;
-  tagline: string;
-  title: string;
   vote_average: number;
   vote_count: number;
 }
