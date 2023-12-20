@@ -7,7 +7,7 @@ export interface Movie {
   popularity: number;
   poster_path: string;
   release_date: string;
-  runtime: number;
+  runtime: any ;
   tagline: string;
   title: string;
   vote_average: number;

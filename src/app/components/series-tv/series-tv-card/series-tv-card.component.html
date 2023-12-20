@@ -8,7 +8,7 @@
         fxFlex.sm="33%">
         <mat-card>
           <mat-card-header>
-            <mat-card-title>{{serieTv.name }}</mat-card-title>
+            <mat-card-title>{{serieTv.name  | titleCropWords:25}}</mat-card-title>
           </mat-card-header>
           <ng-container *ngIf="serieTv?.poster_path; else defaultImage">
             <img  src="http://image.tmdb.org/t/p/w500/{{serieTv.poster_path}}" [alt]="serieTv.name">

@@ -11,7 +11,7 @@ import { MovieService } from 'src/app/service/movie.service';
 export class MovieDetailsComponent {
  
   id!: number;
-  movie$?: Movie;
+  movie?: Movie;
   big_imageUrl: string = 'https://image.tmdb.org/t/p/w1280';
   small_imageUrl: string = 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/';
   /**
@@ -38,7 +38,7 @@ export class MovieDetailsComponent {
    */
   getSingleMoviesDetails({ id }: { id: number; }): void {
     this.movieService.getMovieById({ id }).subscribe((result: Movie) => {
-      this.movie$ = result;
+      this.movie = result;
     });
   }
 }

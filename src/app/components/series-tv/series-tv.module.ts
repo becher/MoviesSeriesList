@@ -9,21 +9,23 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import {MatPaginatorModule} from "@angular/material/paginator";
+import { PipeModule } from "../../pipes/pipe.module";
 
 
 @NgModule({
-  declarations: [
-    SeriesTvStoreComponent,
-    SeriesTvCardComponent,
-    SeriesTvDetailsComponent
-  ],
-  imports: [
-    CommonModule,
-    SeriesTvRoutingModule,
-    MatCardModule, 
-    MatButtonModule,
-    FlexLayoutModule,
-    MatPaginatorModule
-  ]
+    declarations: [
+        SeriesTvStoreComponent,
+        SeriesTvCardComponent,
+        SeriesTvDetailsComponent
+    ],
+    imports: [
+        CommonModule,
+        SeriesTvRoutingModule,
+        MatCardModule,
+        MatButtonModule,
+        FlexLayoutModule,
+        MatPaginatorModule,
+        PipeModule
+    ]
 })
 export class SeriesTvModule { }

@@ -18,7 +18,7 @@
             
             <h2>{{serieTv$?.original_name}} ({{serieTv$?.first_air_date| date:'YYYY' }})</h2>
             <h3>{{serieTv$?.tagline}}</h3>
-            {{serieTv$?.original_language}}
+            {{serieTv$?.original_language | language}}
 
             <ng-container *ngIf="serieTv$?.overview?.length!=0">
                 <h4>Overview</h4>
