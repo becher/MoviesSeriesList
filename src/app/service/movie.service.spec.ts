@@ -23,7 +23,7 @@ describe('MovieService', () => {
   it('should call getAllMovies and return an array of movies', () => {
 			
  
-    service.getAllMoviesWithPageNumber(1).subscribe((res) => {
+    service.getAllMoviesWithPageNumber({ page: 1 }).subscribe((res) => {
       
       expect(res.results.length).toBeGreaterThan(1);
     });

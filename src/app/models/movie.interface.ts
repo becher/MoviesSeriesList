@@ -1,6 +1,5 @@
 export interface Movie {
   id: number;
-  genre_ids: Array<any>;
   backdrop_path: string;
   original_language: string;
   original_title: string;
@@ -13,4 +12,5 @@ export interface Movie {
   title: string;
   vote_average: number;
   vote_count: number;
+  genres: Array<any>;
 }

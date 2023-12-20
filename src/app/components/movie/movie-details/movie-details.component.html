@@ -1,1 +1,36 @@
-<p>movie-details works!</p>
+
+<main class="content">
+
+    <section class="content__main" [style]="'background-image: url('+big_imageUrl+''+ movie$?.backdrop_path +')'">
+  
+      <div class="content__container">
+  
+        <div class="content__info container">
+  
+            <img [src]="small_imageUrl+''+movie$?.poster_path" data-loaded="true" [alt]="movie$?.original_title">
+  
+          <div class="content__data">
+            
+            <h2>{{movie$?.title}} ({{movie$?.release_date ?? movie$?.release_date | date:'YYYY' }})</h2>
+            <h3>{{movie$?.tagline}}</h3>
+            {{movie$?.original_language}} / {{movie$?.runtime}}.
+            <h4>Overview</h4>
+            <p>{{movie$?.overview}}</p>
+  
+            <h4>Categories</h4>
+  
+            <div class="content__data--categories">
+              <button *ngFor="let genre of movie$?.genres" mat-raised-button color="accent" aria-label="Genres"  >{{genre.name}}</button>
+            </div>
+            <h4>Rating : {{movie$?.vote_average | number: '1.0-1'}}</h4>
+          </div>
+  
+        </div>
+  
+      </div>
+  
+    </section>
+    </main>
+
+
+ 

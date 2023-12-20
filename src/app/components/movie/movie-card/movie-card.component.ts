@@ -20,7 +20,7 @@ export class MovieCardComponent implements OnInit {
 
   ngOnInit() {
     // get first movies pages
-    this.getMovies('', this.firstPage);
+    this.getMovies({ searchStr: '', page: this.firstPage });
   }
 
   movieById(_index: number, movie: Movie) {
@@ -28,12 +28,12 @@ export class MovieCardComponent implements OnInit {
   }
 
   changePage(event: any) {
-    this.getMovies(this.searchStr, event.pageIndex + 1);
+    this.getMovies({ searchStr: this.searchStr, page: event.pageIndex + 1 });
   }
 
-  getMovies(searchStr: string, page: number) {
+  getMovies({ searchStr, page }: { searchStr: string; page: number; }) {
     if (searchStr.length == 0) {
-      this.movieService.getAllMoviesWithPageNumber(page).subscribe({
+      this.movieService.getAllMoviesWithPageNumber({ page }).subscribe({
         next: (result: ListResult<Movie>) => {
           this.movies$ = result.results;
           this.total$ = result.total_results;
@@ -43,7 +43,7 @@ export class MovieCardComponent implements OnInit {
         },
       });
     } else {
-      this.movieService.searchMovies(searchStr, page).subscribe({
+      this.movieService.searchMovies({ searchStr, page }).subscribe({
         next: (result: ListResult<Movie>) => {
           this.movies$ = result.results;
           this.total$ = result.total_results;
@@ -57,7 +57,7 @@ export class MovieCardComponent implements OnInit {
 
   onKey(event: any) {
     this.searchStr = event.target.value;
-    this.getMovies(this.searchStr, this.firstPage);
+    this.getMovies({ searchStr: this.searchStr, page: this.firstPage });
     this.paginator.firstPage();
   }
 }
