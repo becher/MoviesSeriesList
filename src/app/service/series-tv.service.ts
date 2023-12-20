@@ -26,4 +26,8 @@ export class SeriesTVService {
     return this.http.get<ListResult<SeriesTv>>(`${this.baseUrl}discover/tv?api_key=${this.apiKey}&page=${page}&language=${this.language}&region=${this.region}`) 
    
   }
+
+  searchSeriesTv(searchStr: string, page:number): Observable<ListResult<SeriesTv>> {
+    return this.http.get<ListResult<SeriesTv>>(`${this.baseUrl}search/tv?api_key=${this.apiKey}&query=${searchStr}&page=${page}&language=${this.language}&region=${this.region}`);
+  }
 }

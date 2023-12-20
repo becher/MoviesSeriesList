@@ -64,6 +64,15 @@ mat-paginator {
 			}
 		}
 	}
+	&__search-bar {
+		padding: 0 0 15px;
+
+		.search {
+			padding: 0.5rem 1rem;
+			width: 42%;
+			outline: none;
+		}
+	}
  
 }
 
