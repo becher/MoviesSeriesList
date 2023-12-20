@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MovieStoreComponent } from './movie-store/movie-store.component';
-import { MovieCardComponent } from './movie-card/movie-card.component';
+import { SeriesTvStoreComponent } from './series-tv-store/series-tv-store.component';
+import { SeriesTvCardComponent } from './series-tv-card/series-tv-card.component';
 
 const routes: Routes = [
   {  
     path:'',
-    component: MovieStoreComponent,
+    component: SeriesTvStoreComponent,
     children :[
       {
         path: '', 
-        component : MovieCardComponent
+        component : SeriesTvCardComponent
       },
          ]
 
@@ -21,4 +21,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class MovieRoutingModule { }
+export class SeriesTvRoutingModule { }
