@@ -2,8 +2,9 @@
   <div class="content__search-bar" fxLayoutAlign="center">
     <input type="search" placeholder="Search movies..." class="search" (keyup)="onKey($event)">
   </div>
-    <div class="card" fxLayout="row wrap " fxLayoutAlign="center" fxLayoutGap="16px grid"  > 
-      <div fxFlex="19%" *ngFor="let movie of movies$;trackBy:movieById"
+  <ng-container *ngIf="movies?.length; else notFound">
+    <div class="card" fxLayout="row wrap " fxLayoutAlign="center" fxLayoutGap="16px grid"> 
+      <div fxFlex="19%" *ngFor="let movie of movies;trackBy:movieById"
         fxFlex.xs="100%"
         fxFlex.sm="33%"> 
         <mat-card>
@@ -23,5 +24,9 @@
         </mat-card>
         </div>
     </div>
+    </ng-container>
+    <ng-template #notFound>
+      <div class="notFound"><h2>Movie Not Found</h2></div>
+    </ng-template>
   </div>
-  <mat-paginator #paginator [length]="total$" [pageSize]="20"  (page)="changePage($event)"></mat-paginator>
+  <mat-paginator #paginator [length]="total" [pageSize]="20"  (page)="changePage($event)"></mat-paginator>

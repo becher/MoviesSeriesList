@@ -2,6 +2,7 @@
     <div class="content__search-bar" fxLayoutAlign="center">
         <input type="search" placeholder="Search series..." class="search" (keyup)="onKey($event)">
       </div>
+      <ng-container *ngIf="seriesTv?.length; else notFound"></ng-container>
     <div class="card" fxLayout="row wrap " fxLayoutAlign="center" fxLayoutGap="16px grid"  > 
       <div fxFlex="19%" *ngFor="let serieTv of seriesTv;trackBy:serieTvById"
         fxFlex.xs="100%"
@@ -23,5 +24,8 @@
         </mat-card>
         </div>
     </div>
+    <ng-template #notFound>
+      <div class="notFound"><h2>Tv series Not Found</h2></div>
+    </ng-template>
   </div>
-  <mat-paginator #paginator [length]="total$" [pageSize]="20"  (page)="changePage($event)"></mat-paginator>
+  <mat-paginator #paginator [length]="total" [pageSize]="20"  (page)="changePage($event)"></mat-paginator>

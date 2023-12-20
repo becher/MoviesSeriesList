@@ -3,8 +3,9 @@
  * @class MovieCardComponent
  * @implements {OnInit}
  */
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
+import { Subject, takeUntil } from 'rxjs';
 import { ListResult } from 'src/app/models/list-result.interface';
 import { Movie } from 'src/app/models/movie.interface';
 import { MovieService } from 'src/app/service/movie.service';
@@ -14,12 +15,13 @@ import { MovieService } from 'src/app/service/movie.service';
   templateUrl: './movie-card.component.html',
   styleUrls: ['./movie-card.component.scss'],
 })
-export class MovieCardComponent implements OnInit {
+export class MovieCardComponent implements OnInit,OnDestroy {
   @ViewChild('paginator') paginator!: MatPaginator;
-  movies$?: Movie[];
-  total$?: number;
+  movies?: Movie[];
+  total?: number;
   searchStr: string = '';
   firstPage: number = 1;
+  private destroy$ = new Subject();
   
   constructor(private movieService: MovieService) {}
 
@@ -51,20 +53,24 @@ export class MovieCardComponent implements OnInit {
    */
   getMovies({ searchStr, page }: { searchStr: string; page: number }) {
     if (searchStr.length == 0) {
-      this.movieService.getAllMoviesWithPageNumber({ page }).subscribe({
+      this.movieService.getAllMoviesWithPageNumber({ page })
+      .pipe(takeUntil(this.destroy$))
+      .subscribe({
         next: (result: ListResult<Movie>) => {
-          this.movies$ = result.results;
-          this.total$ = result.total_results;
+          this.movies = result.results;
+          this.total = result.total_results;
                   },
         error(err) {
           console.error(err);
         },
       });
     } else {
-      this.movieService.searchMovies({ searchStr, page }).subscribe({
+      this.movieService.searchMovies({ searchStr, page })
+      .pipe(takeUntil(this.destroy$))
+      .subscribe({
         next: (result: ListResult<Movie>) => {
-          this.movies$ = result.results;
-          this.total$ = result.total_results;
+          this.movies = result.results;
+          this.total = result.total_results;
                   },
         error(err) {
           console.error(err);
@@ -78,4 +84,10 @@ export class MovieCardComponent implements OnInit {
     this.getMovies({ searchStr: this.searchStr, page: this.firstPage });
     this.paginator.firstPage();
   }
+
+  ngOnDestroy(): void {
+    this.destroy$.next;  // trigger the unsubscribe
+    this.destroy$.complete(); // finalize & clean up the subject stream
+  }
+
 }

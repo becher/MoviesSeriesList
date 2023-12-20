@@ -1,39 +1,39 @@
 
-<div class="content">
+<div class="content" *ngIf="serieTv?.poster_path">
 
-    <section class="content__main" [style]="'background-image: url('+big_imageUrl+''+ serieTv$?.backdrop_path +')'">
+    <section class="content__main" [style]="'background-image: url('+big_imageUrl+''+ serieTv?.backdrop_path +')'">
   
       <div class="content__container">
   
         <div class="content__info container">
-            <ng-container *ngIf="serieTv$?.poster_path; else defaultImage">
-                <img [src]="small_imageUrl+''+serieTv$?.poster_path" data-loaded="true" [alt]="serieTv$?.original_name">
+            <ng-container *ngIf="serieTv?.poster_path; else defaultImage">
+                <img [src]="small_imageUrl+''+serieTv?.poster_path" data-loaded="true" [alt]="serieTv?.original_name">
               </ng-container>
               <ng-template #defaultImage>
-                <img src="assets/images/default-movie.png"[alt]="serieTv$?.original_name">
+                <img src="assets/images/default-movie.png"[alt]="serieTv?.original_name">
               </ng-template>
            
   
           <div class="content__data">
             
-            <h2>{{serieTv$?.original_name}} ({{serieTv$?.first_air_date| date:'YYYY' }})</h2>
-            <h3>{{serieTv$?.tagline}}</h3>
-            {{serieTv$?.original_language | language}}
+            <h2>{{serieTv?.original_name}} ({{serieTv?.first_air_date| date:'YYYY' }})</h2>
+            <h3>{{serieTv?.tagline}}</h3>
+            {{serieTv?.original_language | language}}
 
-            <ng-container *ngIf="serieTv$?.overview?.length!=0">
+            <ng-container *ngIf="serieTv?.overview?.length!=0">
                 <h4>Overview</h4>
-                <p>{{serieTv$?.overview}}</p>
+                <p>{{serieTv?.overview}}</p>
             </ng-container>
             
   
             <h4>Categories</h4>
   
             <div class="content__data--categories">
-              <button *ngFor="let genre of serieTv$?.genres" mat-raised-button color="accent" aria-label="Genres"  >{{genre.name}}</button>
+              <button *ngFor="let genre of serieTv?.genres" mat-raised-button color="accent" aria-label="Genres"  >{{genre.name}}</button>
             </div>
-            <h4>Number of Episodes : {{serieTv$?.number_of_episodes }}</h4>
-            <h4>Number of Seasons : {{serieTv$?.number_of_seasons }}</h4>
-            <h4>Rating : {{serieTv$?.vote_average | number: '1.0-1'}}</h4>
+            <h4>Number of Episodes : {{serieTv?.number_of_episodes }}</h4>
+            <h4>Number of Seasons : {{serieTv?.number_of_seasons }}</h4>
+            <h4>Rating : {{serieTv?.vote_average | number: '1.0-1'}}</h4>
           </div>
   
         </div>

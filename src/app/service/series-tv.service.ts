@@ -53,7 +53,6 @@ export class SeriesTVService {
    * @returns {Observable<SeriesTv>} - An observable that emits the TV series data.
    */
   getSerieTvById({ id }: { id: number }): Observable<SeriesTv> {
-    console.log('gg')
     return this.http.get<SeriesTv>(
       `${this.baseUrl}tv/${id}?api_key=${this.apiKey}`
     );

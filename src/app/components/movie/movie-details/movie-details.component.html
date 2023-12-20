@@ -1,5 +1,5 @@
 
-<div class="content">
+<div class="content" *ngIf="movie?.poster_path">
 
     <section class="content__main" [style]="'background-image: url('+big_imageUrl+''+ movie?.backdrop_path +')'">
   

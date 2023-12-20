@@ -82,6 +82,11 @@ mat-paginator {
 			outline: none;
 		}
 	}
+	.notFound{
+	  color:$color_white;
+	  display: flex;
+	  justify-content: center;
+	}
  
 }
 
