@@ -6,8 +6,13 @@
       <div class="content__container">
   
         <div class="content__info container">
-  
-            <img [src]="small_imageUrl+''+serieTv$?.poster_path" data-loaded="true" [alt]="serieTv$?.original_name">
+            <ng-container *ngIf="serieTv$?.poster_path; else defaultImage">
+                <img [src]="small_imageUrl+''+serieTv$?.poster_path" data-loaded="true" [alt]="serieTv$?.original_name">
+              </ng-container>
+              <ng-template #defaultImage>
+                <img src="assets/images/default-movie.png"[alt]="serieTv$?.original_name">
+              </ng-template>
+           
   
           <div class="content__data">
             

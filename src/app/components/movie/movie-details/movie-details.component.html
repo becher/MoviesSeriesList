@@ -6,9 +6,14 @@
       <div class="content__container">
   
         <div class="content__info container">
-  
-            <img [src]="small_imageUrl+''+movie$?.poster_path" data-loaded="true" [alt]="movie$?.original_title">
-  
+
+          <ng-container *ngIf="movie$?.poster_path; else defaultImage">
+            <img [src]="small_imageUrl+''+movie$?.poster_path"  [alt]="movie$?.original_title">
+          </ng-container>
+          <ng-template #defaultImage>
+            <img src="assets/images/default-movie.png"[alt]="movie$?.original_title">
+          </ng-template>
+    
           <div class="content__data">
             
             <h2>{{movie$?.title}} ({{movie$?.release_date ?? movie$?.release_date | date:'YYYY' }})</h2>

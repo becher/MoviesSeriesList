@@ -23,7 +23,7 @@ import {MatPaginatorModule} from "@angular/material/paginator";
     MatCardModule, 
     MatButtonModule,
     FlexLayoutModule,
-    MatPaginatorModule
+    MatPaginatorModule,
   ]
 })
 export class MovieModule { }

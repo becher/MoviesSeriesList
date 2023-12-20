@@ -3,14 +3,20 @@
         <input type="search" placeholder="Search series..." class="search" (keyup)="onKey($event)">
       </div>
     <div class="card" fxLayout="row wrap " fxLayoutAlign="center" fxLayoutGap="16px grid"  > 
-      <div fxFlex="19%" *ngFor="let serieTv of seriesTv$;trackBy:serieTvById"
+      <div fxFlex="19%" *ngFor="let serieTv of seriesTv;trackBy:serieTvById"
         fxFlex.xs="100%"
         fxFlex.sm="33%">
         <mat-card>
           <mat-card-header>
             <mat-card-title>{{serieTv.name }}</mat-card-title>
           </mat-card-header>
-           <img  src="http://image.tmdb.org/t/p/w500/{{serieTv.poster_path}}" [alt]="serieTv.name">
+          <ng-container *ngIf="serieTv?.poster_path; else defaultImage">
+            <img  src="http://image.tmdb.org/t/p/w500/{{serieTv.poster_path}}" [alt]="serieTv.name">
+          </ng-container>
+          <ng-template #defaultImage>
+            <img src="assets/images/default-movie.png"[alt]="serieTv?.original_name">
+          </ng-template>
+          
             <div class="rate"><i class="material-icons">star</i><span>{{serieTv.vote_average}} / 10</span></div>
             <div class="year">{{serieTv.first_air_date | date: 'yyyy'}}</div>
             <button mat-raised-button routerLink="details/{{serieTv.id}}">Details</button>

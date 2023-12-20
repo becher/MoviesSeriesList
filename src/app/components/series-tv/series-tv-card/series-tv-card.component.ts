@@ -11,7 +11,7 @@ import { SeriesTVService } from 'src/app/service/series-tv.service';
 })
 export class SeriesTvCardComponent {
   @ViewChild('paginator') paginator!: MatPaginator;
-  seriesTv$?: SeriesTv[];
+  seriesTv?: SeriesTv[];
   total$?: number;
   searchStr: string = '';
   firstPage: number = 1;
@@ -27,7 +27,7 @@ export class SeriesTvCardComponent {
     if (searchStr.length == 0) {
       this.seriesTVService.getAllSeriesTvWithPageNumber(page).subscribe({
         next: (result: ListResult<SeriesTv>) => {
-          this.seriesTv$ = result.results;
+          this.seriesTv = result.results;
           this.total$ = result.total_results;
         },
         error(err) {
@@ -37,7 +37,7 @@ export class SeriesTvCardComponent {
     } else {
       this.seriesTVService.searchSeriesTv(searchStr, page).subscribe({
         next: (result: ListResult<SeriesTv>) => {
-          this.seriesTv$ = result.results;
+          this.seriesTv = result.results;
           this.total$ = result.total_results;
         },
         error(err) {

@@ -20,7 +20,7 @@ export class MovieCardComponent implements OnInit {
   total$?: number;
   searchStr: string = '';
   firstPage: number = 1;
-
+  
   constructor(private movieService: MovieService) {}
 
   ngOnInit() {
@@ -55,7 +55,7 @@ export class MovieCardComponent implements OnInit {
         next: (result: ListResult<Movie>) => {
           this.movies$ = result.results;
           this.total$ = result.total_results;
-        },
+                  },
         error(err) {
           console.error(err);
         },
@@ -65,7 +65,7 @@ export class MovieCardComponent implements OnInit {
         next: (result: ListResult<Movie>) => {
           this.movies$ = result.results;
           this.total$ = result.total_results;
-        },
+                  },
         error(err) {
           console.error(err);
         },
