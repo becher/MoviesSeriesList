@@ -1,6 +1,6 @@
 <div class="content">
     <div class="card" fxLayout="row wrap " fxLayoutAlign="center" fxLayoutGap="16px grid"  > 
-      <div fxFlex="19%" *ngFor="let serieTv of seriesTv$"
+      <div fxFlex="19%" *ngFor="let serieTv of seriesTv$;trackBy:serieTvById"
         fxFlex.xs="100%"
         fxFlex.sm="33%">
         <mat-card>

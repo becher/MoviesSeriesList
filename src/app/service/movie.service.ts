@@ -23,7 +23,12 @@ export class MovieService {
   }
 
   getAllMoviesWithPageNumber(page: number) : Observable<ListResult<Movie>>{
-    return this.http.get<ListResult<Movie>>(`${this.baseUrl}discover/movie?api_key=${this.apiKey}&page=${page}&language=${this.language}&region=${this.region}`) 
+    return this.http.get<ListResult<Movie>>(`${this.baseUrl}discover/movie?api_key=${this.apiKey}&page=${page}&language=${this.language}&region=${this.region}`); 
    
   }
+
+  searchMovies(searchStr: string, page:number): Observable<ListResult<Movie>> {
+    return this.http.get<ListResult<Movie>>(`${this.baseUrl}search/movie?api_key=${this.apiKey}&query=${searchStr}&page=${page}&language=${this.language}&region=${this.region}`);
+  }
+
 }

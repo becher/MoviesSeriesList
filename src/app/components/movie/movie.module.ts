@@ -8,6 +8,7 @@ import { MovieStoreComponent } from './movie-store/movie-store.component';
 import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
 import { FlexLayoutModule } from '@angular/flex-layout';
+import {MatPaginatorModule} from "@angular/material/paginator";
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MovieRoutingModule,
     MatCardModule, 
     MatButtonModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatPaginatorModule
   ]
 })
 export class MovieModule { }

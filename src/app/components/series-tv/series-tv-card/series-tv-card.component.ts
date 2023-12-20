@@ -16,7 +16,7 @@ export class SeriesTvCardComponent {
   }
 
   ngOnInit() {
-    // get first movies pages
+    // get first series tv page
     this.getAllSeriesTvWithPageNumber(1);
   }
 
@@ -31,7 +31,8 @@ export class SeriesTvCardComponent {
   })
   }
 
-  movieById(index:number, seriesTv: SeriesTv) {
+
+  serieTvById(index:number, seriesTv: SeriesTv) {
     return seriesTv.id;
 }
 }
