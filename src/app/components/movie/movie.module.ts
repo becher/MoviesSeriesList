@@ -5,7 +5,9 @@ import { MovieRoutingModule } from './movie-routing.module';
 import { MovieCardComponent } from './movie-card/movie-card.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { MovieStoreComponent } from './movie-store/movie-store.component';
-import { RouterModule } from '@angular/router';
+import {MatButtonModule} from "@angular/material/button";
+import {MatCardModule} from "@angular/material/card";
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -16,7 +18,10 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    MovieRoutingModule
+    MovieRoutingModule,
+    MatCardModule, 
+    MatButtonModule,
+    FlexLayoutModule
   ]
 })
 export class MovieModule { }

@@ -22,7 +22,7 @@ export class MovieService {
     this.region = 'US';
   }
 
-  getAllMovies(page: number) : Observable<ListResult<Movie>>{
+  getAllMoviesWithPageNumber(page: number) : Observable<ListResult<Movie>>{
     return this.http.get<ListResult<Movie>>(`${this.baseUrl}discover/movie?api_key=${this.apiKey}&page=${page}&language=${this.language}&region=${this.region}`) 
    
   }
