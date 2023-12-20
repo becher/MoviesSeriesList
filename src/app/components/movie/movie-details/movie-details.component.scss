@@ -27,7 +27,7 @@ $breakpoint-lg: 1200px;
   &__container {
     padding: 5vw;
     width: 100%;
-   // background-image: linear-gradient(to right, rgba(31.5, 31.5, 31.5, 1) calc((50vw - 170px) - 340px), rgba(31.5, 31.5, 31.5, 0.84) 30%, rgba(31.5, 31.5, 31.5, 0.84) 100%);
+
 background-color: #101010ba;
  
     // xs media query
@@ -87,8 +87,7 @@ background-color: #101010ba;
 
     // xs media query
     @media (max-width: $breakpoint-xs) {
-      // display: none;
-      
+
       h2 {margin: 0; font-size: 1.25rem;}
       h3 {margin-top: 10px}
       h4 {margin: 10px 0;}

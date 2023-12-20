@@ -11,4 +11,7 @@ export interface SeriesTv {
   poster_path: string;
   vote_average: number;
   vote_count: number;
+  tagline: string;
+  number_of_episodes: number;
+  number_of_seasons : number;
 }

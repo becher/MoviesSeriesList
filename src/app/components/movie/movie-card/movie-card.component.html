@@ -11,7 +11,7 @@
             <mat-card-title>{{movie.title }}</mat-card-title>
           </mat-card-header>
            <img  src="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}" [alt]="movie.title">
-            <div class="rate"><i class="material-icons">star</i><span>{{movie.vote_average}} / 10</span></div>
+            <div class="rate"><i class="material-icons">star</i><span>{{movie.vote_average | number: '1.0-1' }} / 10</span></div>
             <div class="year">{{movie.release_date | date: 'yyyy'}}</div>
             <button mat-raised-button routerLink="details/{{movie.id}}">Details</button>
         </mat-card>

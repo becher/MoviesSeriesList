@@ -1,3 +1,8 @@
+/**
+ * Represents a component that displays a list of movies in a card format.
+ * @class MovieCardComponent
+ * @implements {OnInit}
+ */
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { ListResult } from 'src/app/models/list-result.interface';
@@ -27,11 +32,24 @@ export class MovieCardComponent implements OnInit {
     return movie.id;
   }
 
+  /**
+   * Changes the page of the movie list based on the given event.
+   * @param {any} event - The event object containing the page index.
+   * @returns None
+   */
   changePage(event: any) {
     this.getMovies({ searchStr: this.searchStr, page: event.pageIndex + 1 });
   }
 
-  getMovies({ searchStr, page }: { searchStr: string; page: number; }) {
+  /**
+   * Retrieves movies based on the provided search string and page number.
+   * If the search string is empty, it retrieves all movies with the specified page number.
+   * Otherwise, it searches for movies that match the search string with the specified page number.
+   * @param {Object} options - The options object containing the search string and page number.
+   * @param {string} options.searchStr - The search string to filter movies.
+   * @param {number} options.page - The page number to retrieve movies from.
+   */
+  getMovies({ searchStr, page }: { searchStr: string; page: number }) {
     if (searchStr.length == 0) {
       this.movieService.getAllMoviesWithPageNumber({ page }).subscribe({
         next: (result: ListResult<Movie>) => {

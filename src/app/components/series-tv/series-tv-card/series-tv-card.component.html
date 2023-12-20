@@ -13,6 +13,7 @@
            <img  src="http://image.tmdb.org/t/p/w500/{{serieTv.poster_path}}" [alt]="serieTv.name">
             <div class="rate"><i class="material-icons">star</i><span>{{serieTv.vote_average}} / 10</span></div>
             <div class="year">{{serieTv.first_air_date | date: 'yyyy'}}</div>
+            <button mat-raised-button routerLink="details/{{serieTv.id}}">Details</button>
         </mat-card>
         </div>
     </div>
