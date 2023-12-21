@@ -9,6 +9,11 @@ const routes: Routes = [
   {
     path:'series',
     loadChildren : () => import('./components/series-tv/series-tv.module').then(m => m.SeriesTvModule)
+  },
+  {
+    path:'',
+    redirectTo:'/movies',
+    pathMatch:'full'
   }
 ];
 
